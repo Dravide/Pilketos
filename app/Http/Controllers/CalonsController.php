@@ -10,6 +10,7 @@ class CalonsController extends Controller
     public function index()
     {
 
+
     }
 
     public function create()

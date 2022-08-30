@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CalonsController;
+use App\Http\Controllers\QrcodesController;
+use App\Http\Controllers\DptsController;
+use App\Http\Controllers\PemilihansController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +20,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+#Home
+Route::get('/home', [HomeController::class, 'index'] );
+Route::resource('calon', CalonsController::class);
+Route::resource('qrcode', QrcodesController::class);
+Route::resource('dpt', DptsController::class);
+Route::resource('pemilihan', PemilihansController::class);
+
+
+
