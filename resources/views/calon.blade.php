@@ -16,11 +16,20 @@
             </div>
         </div>
     </div>
+    @if(Session::has('pesan'))
+        <div class="alert-info">{{ Session::get('pesan') }}</div>
+    @endif
     <div class="row">
         <div class="col-12">
             @foreach($calon as $siswa)
                <li>
-                   {{$siswa->nama_calon}} <a href="{{ route('calon.edit', [$siswa->id]) }}">Edit</a>
+                   {{$siswa->nama_calon}} <a href="{{ route('calon.edit', [$siswa->id]) }}">Edit</a> |
+                   <form action="{{ route('calon.destroy', $siswa->id) }}" method="post">
+                       @csrf
+                       @method('DELETE')
+                       <button onclick="return confirm('Anda Yakin Ingin Menghapus!')">Hapus</button>
+
+                   </form>
                </li>
             @endforeach
         </div>

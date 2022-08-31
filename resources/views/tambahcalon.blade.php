@@ -18,8 +18,14 @@
     </div>
     <div class="row">
         <div class="col-12">
-            {{ $data->nama_calon }}
-
+            <form action="{{ route('calon.store') }}" method="post">
+                @csrf
+                <input type="text" name="nama_calon" >
+                <input type="text" name="jargon">
+                <input type="text" name="visi_dan_misi">
+                <input type="text" name="poster">
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 @endsection

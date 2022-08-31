@@ -17,10 +17,27 @@ class CalonsController extends Controller
 
     public function create()
     {
+        return view('tambahcalon', [
+            'judul'     => 'Tambah Calon Ketua OSIS'
+        ]);
     }
 
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'nama_calon'    => 'required',
+            'jargon'        => 'required',
+            'visi_dan_misi' => 'required',
+            'poster'        => 'required'
+        ]);
+        $calon = new Calon;
+        $calon->nama_calon      = $request->nama_calon;
+        $calon->jargon          = $request->jargon;
+        $calon->visi_dan_misi   = $request->visi_dan_misi;
+        $calon->jargon          = $request->jargon;
+        $calon->poster          = $request->poster;
+        $calon->save();
+        return redirect('calon')->with('pesan', 'Data Berhasil ditambahkan');
     }
 
     public function show(Calon $calon)
@@ -38,12 +55,13 @@ class CalonsController extends Controller
 
     public function update(Request $request, Calon $calon)
     {
+
     }
 
     public function destroy($id)
     {
         $data = Calon::find($id);
         $data->delete();
-        return view('calon')->with('pesan', 'Berkas Berhasi Dihapus');
+        return redirect('calon')->with('pesan', 'Berkas Berhasi Dihapus');
     }
 }

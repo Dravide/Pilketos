@@ -142,7 +142,7 @@
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
                             <li><a href="{{ route('calon.index') }}">Daftar Calon Ketua</a></li>
-                            <li><a href="{{ route('calon.create') }}html">Tambah Calon Ketua</a></li>
+                            <li><a href="{{ route('calon.create') }}">Tambah Calon Ketua</a></li>
                         </ul>
                     </li>
 
