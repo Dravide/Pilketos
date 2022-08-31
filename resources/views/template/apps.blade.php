@@ -113,9 +113,6 @@
                         <a class="dropdown-item text-danger" href="#"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </header>
@@ -145,7 +142,7 @@
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
                             <li><a href="{{ route('calon.index') }}">Daftar Calon Ketua</a></li>
-                            <li><a href="email-read.html">Tambah Calon Ketua</a></li>
+                            <li><a href="{{ route('calon.create') }}html">Tambah Calon Ketua</a></li>
                         </ul>
                     </li>
 

@@ -20,7 +20,7 @@
         <div class="col-12">
             @foreach($calon as $siswa)
                <li>
-                   {{$siswa->nama_calon}}
+                   {{$siswa->nama_calon}} <a href="{{ route('calon.edit', [$siswa->id]) }}">Edit</a>
                </li>
             @endforeach
         </div>
