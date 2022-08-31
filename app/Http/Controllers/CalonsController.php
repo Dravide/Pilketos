@@ -40,7 +40,10 @@ class CalonsController extends Controller
     {
     }
 
-    public function destroy(Calon $calon)
+    public function destroy($id)
     {
+        $data = Calon::find($id);
+        $data->delete();
+        return view('calon')->with('pesan', 'Berkas Berhasi Dihapus');
     }
 }
