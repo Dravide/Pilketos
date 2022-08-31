@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Starter Page | Upzet - Admin & Dashboard Template</title>
+    <title>{{ $judul }} - Pemilihan Ketua Umum OSIS SMPN 1 Cipanas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
@@ -132,29 +132,20 @@
                     <li class="menu-title">Menu</li>
 
                     <li>
-                        <a href="index.html" class="waves-effect">
-                            <i class="mdi mdi-home-variant-outline"></i><span
-                                class="badge rounded-pill bg-primary float-end">3</span>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="calendar.html" class=" waves-effect">
-                            <i class="mdi mdi-calendar-outline"></i>
-                            <span>Calendar</span>
+                        <a href="{{ route('home.index') }}" class="waves-effect">
+                            <i class="mdi mdi-home-variant-outline"></i>
+                            <span>Home</span>
                         </a>
                     </li>
 
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
                             <i class="mdi mdi-email-outline"></i>
-                            <span>Email</span>
+                            <span>Calon Ketua </span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="email-inbox.html">Inbox</a></li>
-                            <li><a href="email-read.html">Read Email</a></li>
-                            <li><a href="email-compose.html">Email Compose</a></li>
+                            <li><a href="{{ route('calon.index') }}">Daftar Calon Ketua</a></li>
+                            <li><a href="email-read.html">Tambah Calon Ketua</a></li>
                         </ul>
                     </li>
 
@@ -204,11 +195,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
-                        <script>document.write(new Date().getFullYear())</script> Â© Upzet.
+                        <script>document.write(new Date().getFullYear())</script> © Dery Supriady
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">
-                            Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesdesign
+                            Pemilihan Ketua Umum OSIS SMPN 1 Cipanas
                         </div>
                     </div>
                 </div>

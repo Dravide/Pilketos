@@ -9,8 +9,10 @@ class CalonsController extends Controller
 {
     public function index()
     {
-
-
+        $calon = Calon::all();
+        return view('calon', [
+            'judul' => 'Daftar Calon Ketua OSIS',
+            'calon' => $calon]);
     }
 
     public function create()
@@ -25,8 +27,13 @@ class CalonsController extends Controller
     {
     }
 
-    public function edit(Calon $calon)
+    public function edit($id)
     {
+        $data = Calon::find($id);
+        return view('editcalon', [
+            'judul'     => 'Edit Calon '.$data->nama_calon.'',
+            'data'      => $data
+        ]);
     }
 
     public function update(Request $request, Calon $calon)

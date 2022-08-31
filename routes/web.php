@@ -22,7 +22,9 @@ Route::get('/', function () {
 });
 
 #Home
-Route::get('/home', [HomeController::class, 'index'] );
+Route::get('/home', [HomeController::class, 'index'] )->name('home.index');
+
+
 Route::resource('calon', CalonsController::class);
 Route::resource('qrcode', QrcodesController::class);
 Route::resource('dpt', DptsController::class);
