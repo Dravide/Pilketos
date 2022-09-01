@@ -25,7 +25,7 @@ class CalonsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'nama_calon'    => 'required',
+            'nama_calon'    => 'required|unique:calons',
             'jargon'        => 'required',
             'visi_dan_misi' => 'required',
             'poster'        => 'required'

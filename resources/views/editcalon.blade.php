@@ -18,8 +18,11 @@
     </div>
     <div class="row">
         <div class="col-12">
-            {{ $data->nama_calon }}
-
+            <div class="card">
+                <div class="card-body">
+                    {{ $data->nama_calon }}
+                </div>
+            </div>
         </div>
     </div>
 @endsection

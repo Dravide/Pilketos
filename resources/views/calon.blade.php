@@ -16,22 +16,58 @@
             </div>
         </div>
     </div>
-    @if(Session::has('pesan'))
-        <div class="alert-info">{{ Session::get('pesan') }}</div>
-    @endif
+
     <div class="row">
         <div class="col-12">
-            @foreach($calon as $siswa)
-               <li>
-                   {{$siswa->nama_calon}} <a href="{{ route('calon.edit', [$siswa->id]) }}">Edit</a> |
-                   <form action="{{ route('calon.destroy', $siswa->id) }}" method="post">
-                       @csrf
-                       @method('DELETE')
-                       <button onclick="return confirm('Anda Yakin Ingin Menghapus!')">Hapus</button>
+            @if(Session::has('pesan'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    {{ Session::get('pesan') }}
+                </div>
+            @endif
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
 
-                   </form>
-               </li>
-            @endforeach
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nama Calon</th>
+                                <th>Visi dan Misi</th>
+                                <th>Jargon</th>
+                                <th>Poster</th>
+                                <th>Aksi</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($calon as $siswa)
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>{{ $siswa->nama_calon }}</td>
+                                    <td>{{ $siswa->visi_dan_misi }}</td>
+                                    <td>{{ $siswa->jargon }}</td>
+                                    <td>{{ $siswa->poster }}</td>
+                                    <td>
+{{--                                        <button type="button" class="btn btn-outline-success btn-sm">Edit</button>--}}
+{{--                                        <button type="button" class="btn btn-outline-danger btn-sm">Cancel</button>--}}
+                                        <a href="{{ route('calon.edit', [$siswa->id]) }}" class="class="btn btn-outline-success btn-sm"">Edit</a>
+                                        <form action="{{ route('calon.destroy', $siswa->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-outline-danger btn-sm" onclick="return confirm('Anda Yakin Ingin Menghapus!')">Hapus</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 @endsection
