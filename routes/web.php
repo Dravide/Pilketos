@@ -6,6 +6,7 @@ use App\Http\Controllers\QrcodesController;
 use App\Http\Controllers\DptsController;
 use App\Http\Controllers\PemilihansController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,13 +23,16 @@ Route::get('/', function () {
 });
 
 #Home
-Route::get('/home', [HomeController::class, 'index'] )->name('home.index');
+Route::get('/home', [HomeController::class, 'index'] )->name('home.index')->middleware('auth');
 
 
-Route::resource('calon', CalonsController::class);
+Route::resource('calon', CalonsController::class)->middleware('auth');
 Route::resource('qrcode', QrcodesController::class);
 Route::resource('dpt', DptsController::class);
 Route::resource('pemilihan', PemilihansController::class);
 
+Route::get('login', [LoginController::class,'index'])->name('login.index')->middleware('guest');
+Route::post('login', [LoginController::class, 'authenticate']);
+Route::get('logout', [LoginController::class,'logout']);
 
 

@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0">Pemilihan Ketua Umum OSIS SMP Negeri 1 Cipanas</h4>
+                <h4 class="mb-sm-0">{{ $judul }}s</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
@@ -22,7 +22,7 @@
             @if(Session::has('pesan'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    {{ Session::get('pesan') }}
+                    {!! Session::get('pesan') !!}
                 </div>
             @endif
             <div class="card">
@@ -51,7 +51,7 @@
                                     <td>
 {{--                                        <button type="button" class="btn btn-outline-success btn-sm">Edit</button>--}}
 {{--                                        <button type="button" class="btn btn-outline-danger btn-sm">Cancel</button>--}}
-                                        <a href="{{ route('calon.edit', [$siswa->id]) }}" class="class="btn btn-outline-success btn-sm"">Edit</a>
+                                        <a href="{{ route('calon.edit', [$siswa->id]) }}" class="btn btn-outline-success btn-sm">Edit</a>
                                         <form action="{{ route('calon.destroy', $siswa->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')

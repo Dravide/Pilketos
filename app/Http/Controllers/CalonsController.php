@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CalonRequest;
 use App\Models\Calon;
 use Illuminate\Http\Request;
 
@@ -22,14 +23,8 @@ class CalonsController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(CalonRequest $request)
     {
-        $this->validate($request,[
-            'nama_calon'    => 'required|unique:calons',
-            'jargon'        => 'required',
-            'visi_dan_misi' => 'required',
-            'poster'        => 'required'
-        ]);
         $calon = new Calon;
         $calon->nama_calon      = $request->nama_calon;
         $calon->jargon          = $request->jargon;
@@ -37,7 +32,7 @@ class CalonsController extends Controller
         $calon->jargon          = $request->jargon;
         $calon->poster          = $request->poster;
         $calon->save();
-        return redirect('calon')->with('pesan', 'Data Berhasil ditambahkan');
+        return redirect('calon')->with('pesan', '<strong>Sukses</strong> Data Berhasil ditambahkan');
     }
 
     public function show(Calon $calon)

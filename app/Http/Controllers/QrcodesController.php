@@ -9,11 +9,16 @@ class QrcodesController extends Controller
 {
     public function index()
     {
-
+        $qr = Qrcode::all();
+        return view('qr.index', [
+            'judul'     => 'QR Code',
+            'qr'        => $qr
+    ]);
     }
 
     public function create()
     {
+
     }
 
     public function store(Request $request)

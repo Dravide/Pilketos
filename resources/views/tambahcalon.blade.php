@@ -20,7 +20,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('calon.store') }}" method="post">
+                    <form action="{{ route('calon.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3 row">
                             <label for="nama_calon" class="col-md-2 col-form-label">Nama Calon</label>
@@ -44,9 +44,29 @@
                                 @enderror
                             </div>
                         </div>
-                        <input type="text" name="visi_dan_misi">
-                        <input type="text" name="poster">
-                        <button type="submit">Submit</button>
+                        <div class="mb-3 row">
+                            <label for="visi_dan_misi" class="col-md-2 col-form-label">Visi dan Misi</label>
+                            <div class="col-md-10">
+                                <textarea class="form-control @error('visi_dan_misi') is-invalid @enderror" type="text" name="visi_dan_misi"  id="visi_dan_misi">{{ old('visi_dan_misi') }}</textarea>
+                                @error('visi_dan_misi')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="poster" class="col-md-2 col-form-label">Poster</label>
+                            <div class="col-md-10">
+                                <input class="form-control @error('poster') is-invalid @enderror" type="file" name="poster" id="poster">
+                                @error('poster')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Submit</button>
                     </form>
                 </div>
             </div>

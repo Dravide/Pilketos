@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->string('nama_calon',255);
             $table->string('jargon', 255);
             $table->string('visi_dan_misi', 255);
-            $table->string('poster',255);
+            $table->string('poster',255)->nullable();
             $table->timestamps();
         });
     }

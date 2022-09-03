@@ -146,18 +146,15 @@
                         </ul>
                     </li>
 
-                    <li class="menu-title">Layouts</li>
+                    <li class="menu-title">QR CODE</li>
 
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
                             <i class="mdi mdi-gradient"></i>
-                            <span>Vertical</span>
+                            <span>QR CODE</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="layouts-light-sidebar.html">Light Sidebar</a></li>
-                            <li><a href="layouts-compact-sidebar.html">Compact Sidebar</a></li>
-                            <li><a href="layouts-icon-sidebar.html">Icon Sidebar</a></li>
-                            <li><a href="layouts-boxed.html">Boxed Layout</a></li>
+                            <li><a href="{{ route('qrcode.index') }}">Daftar QR CODE</a></li>
                         </ul>
                     </li>
 
