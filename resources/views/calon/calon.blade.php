@@ -41,9 +41,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($calon as $siswa)
+                            @foreach($calon as $key => $siswa)
                                 <tr>
-                                    <th scope="row">1</th>
+                                    <th scope="row">{{ $key + 1 }}</th>
                                     <td>{{ $siswa->nama_calon }}</td>
                                     <td>{{ $siswa->visi_dan_misi }}</td>
                                     <td>{{ $siswa->jargon }}</td>

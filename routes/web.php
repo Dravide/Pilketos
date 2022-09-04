@@ -22,16 +22,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-#Home
-Route::get('/home', [HomeController::class, 'index'] )->name('home.index')->middleware('auth');
+Route::middleware('auth')->group(function (){
+    Route::get('/home', [HomeController::class, 'index'] )->name('home.index');
 
+    Route::resource('calon', CalonsController::class);
+    Route::resource('qrcode', QrcodesController::class);
+    Route::resource('dpt', DptsController::class);
+    Route::resource('pemilihan', PemilihansController::class);
+});
 
-Route::resource('calon', CalonsController::class)->middleware('auth');
-Route::resource('qrcode', QrcodesController::class);
-Route::resource('dpt', DptsController::class);
-Route::resource('pemilihan', PemilihansController::class);
-
-Route::get('login', [LoginController::class,'index'])->name('login.index')->middleware('guest');
+Route::get('login', [LoginController::class,'index'])->name('login.index');
 Route::post('login', [LoginController::class, 'authenticate']);
 Route::get('logout', [LoginController::class,'logout']);
 
