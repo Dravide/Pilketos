@@ -12,8 +12,8 @@ class CalonsController extends Controller
     {
         $calon = Calon::all();
         return view('calon', [
-            'judul' => 'Daftar Calon Ketua OSIS',
-            'calon' => $calon]);
+            'judul'     => 'Daftar Calon Ketua OSIS',
+            'calon'     => $calon]);
     }
 
     public function create()
@@ -32,11 +32,13 @@ class CalonsController extends Controller
         $calon->jargon          = $request->jargon;
         $calon->poster          = $request->poster;
         $calon->save();
-        return redirect('calon')->with('pesan', '<strong>Sukses</strong> Data Berhasil ditambahkan');
+        return redirect('calon')->with('pesan', '<strong>Sukses !</strong> Data Berhasil ditambahkan');
     }
 
-    public function show(Calon $calon)
+    public function show($id)
     {
+        $calon = Calon::find($id);
+        return view('editcalon', compact('calon'));
     }
 
     public function edit($id)
